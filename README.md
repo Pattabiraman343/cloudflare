@@ -205,6 +205,5 @@ https://portfolio-pvg5.vercel.app/
 **Notice Period:** Immediate Joiner
 **Bangalore Relocation:** Yes
 
-**Expected Monthly Salary:** [Your expected salary]
+**Expected Monthly Salary:** 4.8 lpa to 5.2 lpa
 
-**Time Spent:** [Your approximate time]
