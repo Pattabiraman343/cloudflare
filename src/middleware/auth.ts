@@ -18,6 +18,17 @@ export const apiKeyAuth = createMiddleware<{
     );
   }
 
+  if (!c.env.API_KEY) {
+    console.error("API_KEY secret is not configured");
+
+    return c.json(
+      {
+        error: "Server configuration error",
+      },
+      500
+    );
+  }
+
   if (apiKey !== c.env.API_KEY) {
     return c.json(
       {

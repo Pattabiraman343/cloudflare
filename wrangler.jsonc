@@ -1,49 +1,33 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "cloudflare-image-api",
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "pattabi-raman-api",
+	"account_id": "011865f296421c95f1b74d28a7de6c79",
 	"main": "src/index.ts",
-	"compatibility_date": "2026-09-26",
+	"compatibility_date": "2026-10-01",
+	"workers_dev": true,
+  
 	"observability": {
-		"enabled": true
+	  "enabled": true
 	},
+  
 	"upload_source_maps": true,
+  
+	"secrets": {
+	  "required": ["API_KEY"]
+	},
+  
 	"d1_databases": [
-		{
-			"binding": "image_db",
-			"database_name": "image-db",
-			"database_id": "2ca814c2-9e7a-458c-aa28-167524c13418"
-		}
+	  {
+		"binding": "DB",
+		"database_name": "pattabi-raman-db",
+		"database_id": "29fb1f13-aab1-424b-b3c2-f65e95f00403"
+	  }
+	],
+  
+	"r2_buckets": [
+	  {
+		"binding": "IMAGES",
+		"bucket_name": "pattabi-raman-images"
+	  }
 	]
-	/**
-	 * Smart Placement
-	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-	 */
-	// "placement": {  "mode": "smart" }
-	/**
-	 * Bindings
-	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-	 * databases, object storage, AI inference, real-time communication and more.
-	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
-	 */
-	/**
-	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 */
-	// "vars": {  "MY_VARIABLE": "production_value" }
-	/**
-	 * Static Assets
-	 * https://developers.cloudflare.com/workers/static-assets/binding/
-	 */
-	// "assets": {  "directory": "./public/",  "binding": "ASSETS" }
-	/**
-	 * Service Bindings (communicate between multiple Workers)
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
-	 */
-	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
-}
+  }

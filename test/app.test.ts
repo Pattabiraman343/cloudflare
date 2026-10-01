@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { exports } from "cloudflare:workers";
-
 describe("Image API", () => {
   it("GET / returns API status", async () => {
     const response = await exports.default.fetch(

@@ -1,4 +1,9 @@
-CREATE TABLE images (
+CREATE TABLE IF NOT EXISTS schema_migrations (
+    version TEXT PRIMARY KEY,
+    applied_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS images (
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,
     r2_key TEXT NOT NULL UNIQUE,
@@ -7,5 +12,5 @@ CREATE TABLE images (
     created_at TEXT NOT NULL
 );
 
-CREATE INDEX idx_images_created_at
+CREATE INDEX IF NOT EXISTS idx_images_created_at
 ON images(created_at);
